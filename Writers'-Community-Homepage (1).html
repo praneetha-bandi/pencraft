@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pencraft - Where Words Come to Life</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#1a237e',secondary:'#ffd700'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Poppins', sans-serif;
+}
+.serif {
+font-family: 'Merriweather', serif;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+.custom-checkbox {
+position: relative;
+display: inline-block;
+width: 20px;
+height: 20px;
+}
+.custom-checkbox input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.checkmark {
+position: absolute;
+top: 0;
+left: 0;
+height: 20px;
+width: 20px;
+background-color: #fff;
+border: 2px solid #cbd5e1;
+border-radius: 4px;
+transition: all 0.3s ease;
+}
+.custom-checkbox input:checked ~ .checkmark {
+background-color: #1a237e;
+border-color: #1a237e;
+}
+.checkmark:after {
+content: "";
+position: absolute;
+display: none;
+}
+.custom-checkbox input:checked ~ .checkmark:after {
+display: block;
+}
+.custom-checkbox .checkmark:after {
+left: 6px;
+top: 2px;
+width: 6px;
+height: 12px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.custom-switch {
+position: relative;
+display: inline-block;
+width: 48px;
+height: 24px;
+}
+.custom-switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.switch-slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #e2e8f0;
+transition: .4s;
+border-radius: 24px;
+}
+.switch-slider:before {
+position: absolute;
+content: "";
+height: 18px;
+width: 18px;
+left: 3px;
+bottom: 3px;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+input:checked + .switch-slider {
+background-color: #1a237e;
+}
+input:checked + .switch-slider:before {
+transform: translateX(24px);
+}
+.custom-radio {
+position: relative;
+display: inline-block;
+width: 20px;
+height: 20px;
+}
+.custom-radio input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.radio-mark {
+position: absolute;
+top: 0;
+left: 0;
+height: 20px;
+width: 20px;
+background-color: #fff;
+border: 2px solid #cbd5e1;
+border-radius: 50%;
+transition: all 0.3s ease;
+}
+.custom-radio input:checked ~ .radio-mark {
+border-color: #1a237e;
+}
+.radio-mark:after {
+content: "";
+position: absolute;
+display: none;
+top: 4px;
+left: 4px;
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background: #1a237e;
+}
+.custom-radio input:checked ~ .radio-mark:after {
+display: block;
+}
+.tab-active {
+background-color: #1a237e;
+color: white;
+}
+.badge {
+position: relative;
+display: inline-block;
+width: 80px;
+height: 80px;
+border-radius: 50%;
+background: #f8f9fa;
+border: 2px solid #e2e8f0;
+overflow: hidden;
+}
+.badge-locked {
+filter: grayscale(100%);
+opacity: 0.5;
+}
+.badge-icon {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+font-size: 32px;
+color: #1a237e;
+}
+.badge-lock {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0,0,0,0.3);
+display: flex;
+align-items: center;
+justify-content: center;
+color: white;
+font-size: 24px;
+}
+.hero-bg {
+background-image: url('https://readdy.ai/api/search-image?query=A%20modern%2C%20airy%20library%20or%20writing%20space%20with%20soft%20natural%20light%20streaming%20through%20large%20windows.%20The%20scene%20shows%20bookshelves%2C%20comfortable%20reading%20nooks%2C%20and%20a%20few%20people%20engaged%20in%20writing%20or%20reading.%20The%20atmosphere%20is%20peaceful%20and%20inspiring%2C%20with%20plants%20adding%20life%20to%20the%20space.%20The%20left%20side%20of%20the%20image%20has%20a%20gradient%20fading%20to%20a%20clean%20white%20background%2C%20allowing%20text%20to%20be%20clearly%20visible%20when%20overlaid.%20The%20overall%20color%20palette%20is%20warm%20and%20inviting%20with%20blues%20and%20golds.&width=1920&height=1080&seq=hero1&orientation=landscape');
+background-size: cover;
+background-position: center;
+}
+.event-card {
+transition: transform 0.3s ease;
+}
+.event-card:hover {
+transform: translateY(-5px);
+}
+.featured-writer {
+transition: transform 0.3s ease;
+}
+.featured-writer:hover {
+transform: scale(1.05);
+}
+</style>
+</head>
+<body class="bg-white">
+<!-- Navigation -->
+<nav class="bg-white shadow-sm px-6 py-4">
+<div class="max-w-7xl mx-auto flex justify-between items-center">
+<div class="flex items-center">
+<a href="#" class="text-3xl font-['Pacifico'] text-primary">Pencraft</a>
+<div class="hidden md:flex ml-10 space-x-8">
+<a href="#" class="text-gray-800 hover:text-primary font-medium">Home</a>
+<a href="#" class="text-gray-800 hover:text-primary font-medium">Discover</a>
+<a href="https://readdy.ai/home/2f610956-499e-4bfb-9dee-c39b0aa31909/692beb09-2cfa-468b-b365-d15c94429642" data-readdy="true" class="text-gray-800 hover:text-primary font-medium">Events</a>
+<a href="#" class="text-gray-800 hover:text-primary font-medium">Community</a>
+<a href="#" class="text-gray-800 hover:text-primary font-medium">About</a>
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<button id="loginBtn" class="px-4 py-2 text-primary border border-primary hover:bg-primary hover:text-white transition-colors duration-300 !rounded-button whitespace-nowrap">Log In</button>
+<button id="signupBtn" class="px-4 py-2 bg-primary text-white hover:bg-opacity-90 transition-colors duration-300 !rounded-button whitespace-nowrap">Sign Up</button>
+<div class="md:hidden w-10 h-10 flex items-center justify-center">
+<i class="ri-menu-line ri-lg"></i>
+</div>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<div class="hero-bg relative">
+<div class="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent"></div>
+<div class="relative max-w-7xl mx-auto px-6 py-24 md:py-32 flex flex-col md:flex-row items-center">
+<div class="md:w-1/2 z-10">
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 serif leading-tight">
+Where Words <span class="text-primary">Come to Life</span>
+</h1>
+<p class="mt-6 text-lg text-gray-700 max-w-lg">
+Join our vibrant community of writers, readers, event managers, and companies. Discover new voices, share your stories, and connect with like-minded individuals.
+</p>
+<div class="mt-8 flex flex-wrap gap-4">
+<button id="getStartedBtn" class="px-6 py-3 bg-primary text-white font-medium hover:bg-opacity-90 transition-colors duration-300 !rounded-button whitespace-nowrap">Get Started</button>
+<button class="px-6 py-3 bg-white border border-gray-300 text-gray-700 font-medium hover:bg-gray-50 transition-colors duration-300 !rounded-button whitespace-nowrap">Learn More</button>
+</div>
+</div>
+</div>
+</div>
+<!-- User Categories -->
+<div class="bg-gray-50 py-16">
+<div class="max-w-7xl mx-auto px-6">
+<h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Find Your Place in Our Community</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Writers -->
+<div class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow duration-300">
+<div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+<i class="ri-quill-pen-line ri-lg text-primary"></i>
+</div>
+<h3 class="text-xl font-bold text-gray-900 mb-2">Writers</h3>
+<p class="text-gray-600 mb-4">Share your work, join competitions, earn badges, and connect with your audience.</p>
+<button id="joinWriterBtn" class="mt-2 text-primary font-medium flex items-center !rounded-button whitespace-nowrap">
+Join as Writer
+<div class="w-5 h-5 ml-1 flex items-center justify-center">
+<i class="ri-arrow-right-line"></i>
+</div>
+</button>
+</div>
+<!-- Readers -->
+<div class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow duration-300">
+<div class="w-14 h-14 bg-secondary/10 rounded-full flex items-center justify-center mb-4">
+<i class="ri-book-open-line ri-lg text-secondary"></i>
+</div>
+<h3 class="text-xl font-bold text-gray-900 mb-2">Readers</h3>
+<p class="text-gray-600 mb-4">Discover new authors, follow favorites, engage with content, and join discussions.</p>
+<button class="mt-2 text-primary font-medium flex items-center !rounded-button whitespace-nowrap">
+Join as Reader
+<div class="w-5 h-5 ml-1 flex items-center justify-center">
+<i class="ri-arrow-right-line"></i>
+</div>
+</button>
+</div>
+<!-- Event Managers -->
+<div class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow duration-300">
+<div class="w-14 h-14 bg-[#ff7f50]/10 rounded-full flex items-center justify-center mb-4">
+<i class="ri-calendar-event-line ri-lg text-[#ff7f50]"></i>
+</div>
+<h3 class="text-xl font-bold text-gray-900 mb-2">Event Managers</h3>
+<p class="text-gray-600 mb-4">Organize reading sessions, workshops, and connect with talented writers.</p>
+<button class="mt-2 text-primary font-medium flex items-center !rounded-button whitespace-nowrap">
+Join as Event Manager
+<div class="w-5 h-5 ml-1 flex items-center justify-center">
+<i class="ri-arrow-right-line"></i>
+</div>
+</button>
+</div>
+<!-- Companies -->
+<div class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow duration-300">
+<div class="w-14 h-14 bg-[#4caf50]/10 rounded-full flex items-center justify-center mb-4">
+<i class="ri-building-line ri-lg text-[#4caf50]"></i>
+</div>
+<h3 class="text-xl font-bold text-gray-900 mb-2">Companies</h3>
+<p class="text-gray-600 mb-4">Collaborate with writers for creative projects, content creation, and more.</p>
+<button class="mt-2 text-primary font-medium flex items-center !rounded-button whitespace-nowrap">
+Join as Company
+<div class="w-5 h-5 ml-1 flex items-center justify-center">
+<i class="ri-arrow-right-line"></i>
+</div>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Featured Writers -->
+<div class="py-16 bg-white">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex justify-between items-center mb-12">
+<h2 class="text-3xl font-bold text-gray-900">Featured Writers</h2>
+<button class="text-primary font-medium flex items-center !rounded-button whitespace-nowrap">
+View All
+<div class="w-5 h-5 ml-1 flex items-center justify-center">
+<i class="ri-arrow-right-line"></i>
+</div>
+</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Writer 1 -->
+<div class="featured-writer bg-white rounded-lg shadow-sm p-6 border border-gray-100">
+<div class="flex items-center mb-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20young%20woman%20with%20medium-length%20brown%20hair%20and%20a%20warm%20smile%2C%20looking%20confident%20and%20approachable.%20The%20image%20has%20a%20clean%2C%20neutral%20background%20suitable%20for%20a%20profile%20picture.%20High%20quality%2C%20professional%20lighting%2C%20front-facing%20portrait.&width=100&height=100&seq=writer1&orientation=squarish" alt="Emily Parker" class="w-16 h-16 rounded-full object-cover object-top">
+<div class="ml-4">
+<h3 class="text-lg font-bold text-gray-900">Emily Parker</h3>
+<p class="text-sm text-gray-500">Fiction & Poetry</p>
+</div>
+</div>
+<p class="text-gray-600 text-sm mb-4">Award-winning novelist exploring themes of identity and belonging in contemporary society.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center text-gray-400">
+<i class="ri-user-follow-line"></i>
+</div>
+<span class="ml-1 text-sm text-gray-500">4.2k followers</span>
+</div>
+<button class="px-3 py-1 text-xs border border-primary text-primary hover:bg-primary hover:text-white transition-colors duration-300 !rounded-button whitespace-nowrap">Follow</button>
+</div>
+</div>
+<!-- Writer 2 -->
+<div class="featured-writer bg-white rounded-lg shadow-sm p-6 border border-gray-100">
+<div class="flex items-center mb-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20middle-aged%20man%20with%20short%20dark%20hair%2C%20glasses%2C%20and%20a%20thoughtful%20expression.%20He%20has%20a%20neat%20beard%20and%20is%20wearing%20a%20casual%20button-up%20shirt.%20The%20image%20has%20a%20clean%2C%20neutral%20background%20suitable%20for%20a%20profile%20picture.%20High%20quality%2C%20professional%20lighting%2C%20front-facing%20portrait.&width=100&height=100&seq=writer2&orientation=squarish" alt="Marcus Chen" class="w-16 h-16 rounded-full object-cover object-top">
+<div class="ml-4">
+<h3 class="text-lg font-bold text-gray-900">Marcus Chen</h3>
+<p class="text-sm text-gray-500">Non-fiction & Essays</p>
+</div>
+</div>
+<p class="text-gray-600 text-sm mb-4">Bestselling author of thought-provoking essays on technology and human connection.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center text-gray-400">
+<i class="ri-user-follow-line"></i>
+</div>
+<span class="ml-1 text-sm text-gray-500">3.8k followers</span>
+</div>
+<button class="px-3 py-1 text-xs border border-primary text-primary hover:bg-primary hover:text-white transition-colors duration-300 !rounded-button whitespace-nowrap">Follow</button>
+</div>
+</div>
+<!-- Writer 3 -->
+<div class="featured-writer bg-white rounded-lg shadow-sm p-6 border border-gray-100">
+<div class="flex items-center mb-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20young%20woman%20with%20curly%20black%20hair%20and%20a%20bright%2C%20engaging%20smile.%20She%20has%20warm%20brown%20skin%20and%20is%20wearing%20professional%20attire.%20The%20image%20has%20a%20clean%2C%20neutral%20background%20suitable%20for%20a%20profile%20picture.%20High%20quality%2C%20professional%20lighting%2C%20front-facing%20portrait.&width=100&height=100&seq=writer3&orientation=squarish" alt="Aisha Johnson" class="w-16 h-16 rounded-full object-cover object-top">
+<div class="ml-4">
+<h3 class="text-lg font-bold text-gray-900">Aisha Johnson</h3>
+<p class="text-sm text-gray-500">Young Adult & Fantasy</p>
+</div>
+</div>
+<p class="text-gray-600 text-sm mb-4">Creator of immersive fantasy worlds that captivate young readers and adults alike.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center text-gray-400">
+<i class="ri-user-follow-line"></i>
+</div>
+<span class="ml-1 text-sm text-gray-500">5.6k followers</span>
+</div>
+<button class="px-3 py-1 text-xs border border-primary text-primary hover:bg-primary hover:text-white transition-colors duration-300 !rounded-button whitespace-nowrap">Follow</button>
+</div>
+</div>
+<!-- Writer 4 -->
+<div class="featured-writer bg-white rounded-lg shadow-sm p-6 border border-gray-100">
+<div class="flex items-center mb-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20an%20older%20man%20with%20silver%20hair%20and%20a%20distinguished%20appearance.%20He%20has%20a%20kind%20smile%20and%20is%20wearing%20a%20casual%20blazer.%20The%20image%20has%20a%20clean%2C%20neutral%20background%20suitable%20for%20a%20profile%20picture.%20High%20quality%2C%20professional%20lighting%2C%20front-facing%20portrait.&width=100&height=100&seq=writer4&orientation=squarish" alt="Robert Nguyen" class="w-16 h-16 rounded-full object-cover object-top">
+<div class="ml-4">
+<h3 class="text-lg font-bold text-gray-900">Robert Nguyen</h3>
+<p class="text-sm text-gray-500">Mystery & Thriller</p>
+</div>
+</div>
+<p class="text-gray-600 text-sm mb-4">Master of suspense with over 20 published novels and a dedicated global fanbase.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-5 h-5 flex items-center justify-center text-gray-400">
+<i class="ri-user-follow-line"></i>
+</div>
+<span class="ml-1 text-sm text-gray-500">7.1k followers</span>
+</div>
+<button class="px-3 py-1 text-xs border border-primary text-primary hover:bg-primary hover:text-white transition-colors duration-300 !rounded-button whitespace-nowrap">Follow</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Upcoming Live Sessions -->
+<div class="py-16 bg-gray-50">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex justify-between items-center mb-12">
+<h2 class="text-3xl font-bold text-gray-900">Upcoming Live Sessions</h2>
+<button class="text-primary font-medium flex items-center !rounded-button whitespace-nowrap">
+View All Events
+<div class="w-5 h-5 ml-1 flex items-center justify-center">
+<i class="ri-arrow-right-line"></i>
+</div>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Event 1 -->
+<div class="event-card bg-white rounded-lg shadow-sm overflow-hidden">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20writing%20workshop%20scene%20with%20a%20diverse%20group%20of%20people%20seated%20in%20a%20semicircle%2C%20engaged%20in%20discussion.%20A%20presenter%20stands%20at%20the%20front%20near%20a%20whiteboard%20or%20screen.%20The%20room%20has%20a%20warm%2C%20creative%20atmosphere%20with%20good%20lighting%20and%20some%20plants%20or%20bookshelves%20visible.%20The%20setting%20looks%20professional%20but%20comfortable%2C%20like%20a%20modern%20coworking%20space%20or%20library%20event%20room.&width=400&height=250&seq=event1&orientation=landscape" alt="Crafting Compelling Characters" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="flex items-center mb-3">
+<div class="w-5 h-5 flex items-center justify-center text-primary">
+<i class="ri-calendar-line"></i>
+</div>
+<span class="ml-2 text-sm text-gray-500">May 18, 2025 • 2:00 PM EST</span>
+</div>
+<h3 class="text-xl font-bold text-gray-900 mb-2">Crafting Compelling Characters</h3>
+<p class="text-gray-600 text-sm mb-4">Join bestselling author Emily Parker for a workshop on creating memorable characters that readers will love.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20young%20woman%20with%20medium-length%20brown%20hair%20and%20a%20warm%20smile%2C%20looking%20confident%20and%20approachable.%20The%20image%20has%20a%20clean%2C%20neutral%20background%20suitable%20for%20a%20profile%20picture.%20High%20quality%2C%20professional%20lighting%2C%20front-facing%20portrait.&width=50&height=50&seq=writer1small&orientation=squarish" alt="Emily Parker" class="w-8 h-8 rounded-full object-cover object-top">
+<span class="ml-2 text-sm font-medium">Emily Parker</span>
+</div>
+<button class="px-3 py-1 text-xs bg-primary text-white hover:bg-opacity-90 transition-colors duration-300 !rounded-button whitespace-nowrap">RSVP</button>
+</div>
+</div>
+</div>
+<!-- Event 2 -->
+<div class="event-card bg-white rounded-lg shadow-sm overflow-hidden">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20book%20reading%20event%20in%20a%20cozy%20bookstore%20or%20caf%C3%A9.%20A%20writer%20is%20reading%20from%20their%20work%20to%20an%20attentive%20audience.%20The%20space%20has%20warm%20lighting%2C%20bookshelves%20in%20the%20background%2C%20and%20perhaps%20some%20coffee%20cups%20or%20refreshments%20visible.%20The%20atmosphere%20is%20intimate%20and%20engaging%2C%20with%20a%20diverse%20group%20of%20listeners%20of%20various%20ages.&width=400&height=250&seq=event2&orientation=landscape" alt="Poetry Reading Night" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="flex items-center mb-3">
+<div class="w-5 h-5 flex items-center justify-center text-primary">
+<i class="ri-calendar-line"></i>
+</div>
+<span class="ml-2 text-sm text-gray-500">May 20, 2025 • 7:00 PM EST</span>
+</div>
+<h3 class="text-xl font-bold text-gray-900 mb-2">Poetry Reading Night</h3>
+<p class="text-gray-600 text-sm mb-4">An evening of powerful poetry readings from emerging voices in our community.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-white">
+<i class="ri-community-line"></i>
+</div>
+<span class="ml-2 text-sm font-medium">Community Event</span>
+</div>
+<button class="px-3 py-1 text-xs bg-primary text-white hover:bg-opacity-90 transition-colors duration-300 !rounded-button whitespace-nowrap">RSVP</button>
+</div>
+</div>
+</div>
+<!-- Event 3 -->
+<div class="event-card bg-white rounded-lg shadow-sm overflow-hidden">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20professional%20publishing%20panel%20discussion%20with%20several%20industry%20experts%20seated%20at%20a%20table%20with%20microphones.%20The%20setting%20looks%20like%20a%20conference%20room%20or%20event%20space%20with%20professional%20lighting.%20The%20panelists%20appear%20engaged%20in%20conversation%2C%20and%20there%20might%20be%20a%20moderator.%20The%20audience%20is%20partially%20visible%2C%20taking%20notes%20or%20listening%20attentively.&width=400&height=250&seq=event3&orientation=landscape" alt="Publishing Industry Insights" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-6">
+<div class="flex items-center mb-3">
+<div class="w-5 h-5 flex items-center justify-center text-primary">
+<i class="ri-calendar-line"></i>
+</div>
+<span class="ml-2 text-sm text-gray-500">May 25, 2025 • 1:00 PM EST</span>
+</div>
+<h3 class="text-xl font-bold text-gray-900 mb-2">Publishing Industry Insights</h3>
+<p class="text-gray-600 text-sm mb-4">A panel discussion with top publishing professionals on current trends and opportunities.</p>
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-full bg-[#4caf50] flex items-center justify-center text-white">
+<i class="ri-building-line"></i>
+</div>
+<span class="ml-2 text-sm font-medium">Horizon Publishing</span>
+</div>
+<button class="px-3 py-1 text-xs bg-primary text-white hover:bg-opacity-90 transition-colors duration-300 !rounded-button whitespace-nowrap">RSVP</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Writer Benefits -->
+<div class="py-16 bg-white">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold text-gray-900 mb-4">Unlock Your Writing Potential</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Our platform offers unique opportunities for writers to grow, connect, and thrive in their creative journey.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Badges & Rewards -->
+<div class="bg-white rounded-lg p-6 shadow-sm border border-gray-100">
+<div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+<i class="ri-award-line ri-lg text-primary"></i>
+</div>
+<h3 class="text-xl font-bold text-gray-900 mb-2">Badges & Rewards</h3>
+<p class="text-gray-600 mb-6">Earn recognition for your achievements and unlock real-world perks like publishing opportunities and mentorship.</p>
+<div class="flex justify-between mb-4">
+<div class="text-center">
+<div class="badge">
+<div class="badge-icon">
+<i class="ri-quill-pen-fill text-primary"></i>
+</div>
+</div>
+<p class="text-xs mt-2 text-gray-600">Prolific Writer</p>
+</div>
+<div class="text-center">
+<div class="badge">
+<div class="badge-icon">
+<i class="ri-trophy-fill text-secondary"></i>
+</div>
+</div>
+<p class="text-xs mt-2 text-gray-600">Contest Winner</p>
+</div>
+<div class="text-center">
+<div class="badge badge-locked">
+<div class="badge-icon">
+<i class="ri-star-fill text-[#ff7f50]"></i>
+</div>
+<div class="badge-lock">
+<i class="ri-lock-line"></i>
+</div>
+</div>
+<p class="text-xs mt-2 text-gray-400">Reader's Choice</p>
+</div>
+</div>
+</div>
+<!-- Competitions -->
+<div class="bg-white rounded-lg p-6 shadow-sm border border-gray-100">
+<div class="w-14 h-14 bg-secondary/10 rounded-full flex items-center justify-center mb-4">
+<i class="ri-trophy-line ri-lg text-secondary"></i>
+</div>
+<h3 class="text-xl font-bold text-gray-900 mb-2">Writing Competitions</h3>
+<p class="text-gray-600 mb-6">Participate in regular writing contests with cash prizes, publication opportunities, and industry recognition.</p>
+<div class="bg-gray-50 rounded p-4 mb-3">
+<div class="flex justify-between items-center mb-2">
+<h4 class="font-medium text-gray-900">Spring Short Story Contest</h4>
+<span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">Active</span>
+</div>
+<p class="text-sm text-gray-600 mb-2">Submit your best short story under 5,000 words.</p>
+<div class="flex items-center text-xs text-gray-500">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-calendar-line"></i>
+</div>
+<span class="ml-1">Deadline: June 1, 2025</span>
+</div>
+</div>
+<div class="bg-gray-50 rounded p-4">
+<div class="flex justify-between items-center mb-2">
+<h4 class="font-medium text-gray-900">Poetry Collection Prize</h4>
+<span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Coming Soon</span>
+</div>
+<p class="text-sm text-gray-600 mb-2">A collection of 10-15 poems on any theme.</p>
+<div class="flex items-center text-xs text-gray-500">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-calendar-line"></i>
+</div>
+<span class="ml-1">Opens: July 15, 2025</span>
+</div>
+</div>
+</div>
+<!-- Collaboration -->
+<div class="bg-white rounded-lg p-6 shadow-sm border border-gray-100">
+<div class="w-14 h-14 bg-[#ff7f50]/10 rounded-full flex items-center justify-center mb-4">
+<i class="ri-team-line ri-lg text-[#ff7f50]"></i>
+</div>
+<h3 class="text-xl font-bold text-gray-900 mb-2">Professional Opportunities</h3>
+<p class="text-gray-600 mb-6">Connect with event managers and companies looking for creative talent for various projects and events.</p>
+<div class="border-l-4 border-[#4caf50] pl-4 mb-4">
+<h4 class="font-medium text-gray-900 mb-1">Content Creation</h4>
+<p class="text-sm text-gray-600">Write blog posts, articles, and marketing copy for businesses.</p>
+</div>
+<div class="border-l-4 border-secondary pl-4 mb-4">
+<h4 class="font-medium text-gray-900 mb-1">Reading Events</h4>
+<p class="text-sm text-gray-600">Participate in public readings, book signings, and literary festivals.</p>
+</div>
+<div class="border-l-4 border-primary pl-4">
+<h4 class="font-medium text-gray-900 mb-1">Workshops & Teaching</h4>
+<p class="text-sm text-gray-600">Lead writing workshops and classes for aspiring writers.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Community & Discussions -->
+<div class="py-16 bg-gray-50">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row items-center justify-between mb-12">
+<div class="md:w-1/2 mb-8 md:mb-0">
+<h2 class="text-3xl font-bold text-gray-900 mb-4">Join the Conversation</h2>
+<p class="text-gray-600 max-w-lg">Our vibrant community forums are the perfect place to discuss writing techniques, share feedback, and connect with fellow literary enthusiasts.</p>
+<button class="mt-6 px-6 py-3 bg-primary text-white font-medium hover:bg-opacity-90 transition-colors duration-300 !rounded-button whitespace-nowrap">Explore Discussions</button>
+</div>
+<div class="md:w-1/2">
+<div class="bg-white rounded-lg shadow-sm p-6">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-xl font-bold text-gray-900">Popular Discussions</h3>
+<div class="px-1 py-1 bg-gray-100 rounded-full flex">
+<button class="px-4 py-1 rounded-full tab-active">Recent</button>
+<button class="px-4 py-1 rounded-full text-gray-600">Popular</button>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Discussion 1 -->
+<div class="border-b border-gray-100 pb-4">
+<div class="flex items-start">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20middle-aged%20man%20with%20short%20dark%20hair%2C%20glasses%2C%20and%20a%20thoughtful%20expression.%20He%20has%20a%20neat%20beard%20and%20is%20wearing%20a%20casual%20button-up%20shirt.%20The%20image%20has%20a%20clean%2C%20neutral%20background%20suitable%20for%20a%20profile%20picture.%20High%20quality%2C%20professional%20lighting%2C%20front-facing%20portrait.&width=50&height=50&seq=writer2small&orientation=squarish" alt="Marcus Chen" class="w-10 h-10 rounded-full object-cover object-top">
+<div class="ml-3 flex-1">
+<div class="flex justify-between">
+<h4 class="font-medium text-gray-900">The Future of Digital Publishing</h4>
+<span class="text-xs text-gray-500">2h ago</span>
+</div>
+<p class="text-sm text-gray-600 mt-1">How are new technologies changing the publishing landscape for independent authors?</p>
+<div class="flex items-center mt-2 text-sm text-gray-500">
+<div class="flex items-center mr-4">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-message-2-line"></i>
+</div>
+<span class="ml-1">24 replies</span>
+</div>
+<div class="flex items-center">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-eye-line"></i>
+</div>
+<span class="ml-1">142 views</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Discussion 2 -->
+<div class="border-b border-gray-100 pb-4">
+<div class="flex items-start">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20young%20woman%20with%20curly%20black%20hair%20and%20a%20bright%2C%20engaging%20smile.%20She%20has%20warm%20brown%20skin%20and%20is%20wearing%20professional%20attire.%20The%20image%20has%20a%20clean%2C%20neutral%20background%20suitable%20for%20a%20profile%20picture.%20High%20quality%2C%20professional%20lighting%2C%20front-facing%20portrait.&width=50&height=50&seq=writer3small&orientation=squarish" alt="Aisha Johnson" class="w-10 h-10 rounded-full object-cover object-top">
+<div class="ml-3 flex-1">
+<div class="flex justify-between">
+<h4 class="font-medium text-gray-900">Character Development in YA Fiction</h4>
+<span class="text-xs text-gray-500">5h ago</span>
+</div>
+<p class="text-sm text-gray-600 mt-1">Let's discuss techniques for creating authentic teenage characters that resonate with readers.</p>
+<div class="flex items-center mt-2 text-sm text-gray-500">
+<div class="flex items-center mr-4">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-message-2-line"></i>
+</div>
+<span class="ml-1">31 replies</span>
+</div>
+<div class="flex items-center">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-eye-line"></i>
+</div>
+<span class="ml-1">189 views</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Discussion 3 -->
+<div>
+<div class="flex items-start">
+<div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-white">
+<i class="ri-community-line"></i>
+</div>
+<div class="ml-3 flex-1">
+<div class="flex justify-between">
+<h4 class="font-medium text-gray-900">Monthly Writing Prompt Challenge</h4>
+<span class="text-xs text-gray-500">1d ago</span>
+</div>
+<p class="text-sm text-gray-600 mt-1">May's theme is "Unexpected Connections." Share your flash fiction pieces under 500 words!</p>
+<div class="flex items-center mt-2 text-sm text-gray-500">
+<div class="flex items-center mr-4">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-message-2-line"></i>
+</div>
+<span class="ml-1">47 replies</span>
+</div>
+<div class="flex items-center">
+<div class="w-4 h-4 flex items-center justify-center">
+<i class="ri-eye-line"></i>
+</div>
+<span class="ml-1">263 views</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Testimonials -->
+<div class="py-16 bg-white">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold text-gray-900 mb-4">Success Stories</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Hear from writers who have found success and community on our platform.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Testimonial 1 -->
+<div class="bg-gray-50 rounded-lg p-6">
+<div class="flex items-center mb-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20woman%20in%20her%2030s%20with%20blonde%20hair%20and%20glasses%2C%20smiling%20warmly%20at%20the%20camera.%20She%20has%20a%20professional%20appearance%20with%20a%20simple%20blouse.%20The%20image%20has%20a%20clean%2C%20neutral%20background%20suitable%20for%20a%20profile%20picture.%20High%20quality%2C%20professional%20lighting%2C%20front-facing%20portrait.&width=80&height=80&seq=testimonial1&orientation=squarish" alt="Sarah Williams" class="w-12 h-12 rounded-full object-cover object-top">
+<div class="ml-3">
+<h3 class="font-bold text-gray-900">Sarah Williams</h3>
+<p class="text-sm text-gray-500">Fiction Writer</p>
+</div>
+</div>
+<p class="text-gray-600">"After joining this platform, I not only found a supportive community of fellow writers but also connected with a publisher who loved my work. My debut novel will be released next spring!"</p>
+<div class="flex items-center mt-4 text-secondary">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-gray-50 rounded-lg p-6">
+<div class="flex items-center mb-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20man%20in%20his%2040s%20with%20short%20brown%20hair%20and%20a%20friendly%20smile.%20He%20is%20wearing%20a%20casual%20button-up%20shirt.%20The%20image%20has%20a%20clean%2C%20neutral%20background%20suitable%20for%20a%20profile%20picture.%20High%20quality%2C%20professional%20lighting%2C%20front-facing%20portrait.&width=80&height=80&seq=testimonial2&orientation=squarish" alt="David Thompson" class="w-12 h-12 rounded-full object-cover object-top">
+<div class="ml-3">
+<h3 class="font-bold text-gray-900">David Thompson</h3>
+<p class="text-sm text-gray-500">Poet & Essayist</p>
+</div>
+</div>
+<p class="text-gray-600">"The feedback I've received from this community has transformed my writing. I've won two competitions, and now I'm leading workshops at literary festivals across the country."</p>
+<div class="flex items-center mt-4 text-secondary">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="bg-gray-50 rounded-lg p-6">
+<div class="flex items-center mb-4">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20woman%20in%20her%2050s%20with%20short%20gray%20hair%20and%20a%20confident%20expression.%20She%20is%20wearing%20professional%20attire%20with%20a%20simple%20necklace.%20The%20image%20has%20a%20clean%2C%20neutral%20background%20suitable%20for%20a%20profile%20picture.%20High%20quality%2C%20professional%20lighting%2C%20front-facing%20portrait.&width=80&height=80&seq=testimonial3&orientation=squarish" alt="Elena Rodriguez" class="w-12 h-12 rounded-full object-cover object-top">
+<div class="ml-3">
+<h3 class="font-bold text-gray-900">Elena Rodriguez</h3>
+<p class="text-sm text-gray-500">Memoir Writer</p>
+</div>
+</div>
+<p class="text-gray-600">"As an older writer just starting out, I was nervous about sharing my work. This platform provided a safe, encouraging space to grow. Now I've published my memoir and found a whole new career."</p>
+<div class="flex items-center mt-4 text-secondary">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- CTA -->
+<div class="py-16 bg-primary text-white">
+<div class="max-w-7xl mx-auto px-6 text-center">
+<h2 class="text-3xl font-bold mb-4">Ready to Start Your Writing Journey?</h2>
+<p class="text-white/80 max-w-2xl mx-auto mb-8">Join our community of writers, readers, event managers, and companies today and unlock a world of creative possibilities.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<button class="px-6 py-3 bg-white text-primary font-medium hover:bg-gray-100 transition-colors duration-300 !rounded-button whitespace-nowrap">Sign Up Now</button>
+<button class="px-6 py-3 bg-transparent border border-white text-white font-medium hover:bg-white/10 transition-colors duration-300 !rounded-button whitespace-nowrap">Learn More</button>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="bg-gray-900 text-white pt-16 pb-8">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+<div>
+<a href="#" class="text-3xl font-['Pacifico'] text-white mb-4 inline-block">Pencraft</a>
+<p class="text-gray-400 mb-6">A platform dedicated to connecting writers with readers, event managers, and companies.</p>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors duration-300">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors duration-300">
+<i class="ri-twitter-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors duration-300">
+<i class="ri-instagram-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors duration-300">
+<i class="ri-linkedin-fill"></i>
+</a>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-bold mb-4">Quick Links</h3>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Home</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">About Us</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Features</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Pricing</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Contact</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-bold mb-4">Resources</h3>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Blog</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Writing Tips</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Events Calendar</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Success Stories</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">FAQs</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-bold mb-4">Subscribe</h3>
+<p class="text-gray-400 mb-4">Stay updated with our newsletter</p>
+<form class="mb-4">
+<div class="flex">
+<input type="email" placeholder="Your email address" class="px-4 py-2 w-full bg-gray-800 border-none rounded-l text-white text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+<button type="submit" class="px-4 py-2 bg-primary text-white hover:bg-opacity-90 transition-colors duration-300 rounded-r !rounded-button whitespace-nowrap">Subscribe</button>
+</div>
+</form>
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-visa-fill ri-lg"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-mastercard-fill ri-lg"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-paypal-fill ri-lg"></i>
+</div>
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-apple-fill ri-lg"></i>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-gray-800 pt-8">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 Pencraft. All rights reserved.</p>
+<div class="flex space-x-6">
+<a href="#" class="text-gray-400 hover:text-white text-sm transition-colors duration-300">Privacy Policy</a>
+<a href="#" class="text-gray-400 hover:text-white text-sm transition-colors duration-300">Terms of Service</a>
+<a href="#" class="text-gray-400 hover:text-white text-sm transition-colors duration-300">Cookie Policy</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<!-- Login Modal -->
+<div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+<div class="bg-white rounded-lg max-w-md w-full p-6 relative">
+<button id="closeLoginBtn" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-close-line ri-lg"></i>
+</div>
+</button>
+<div class="text-center mb-6">
+<h3 class="text-2xl font-bold text-gray-900">Welcome Back</h3>
+<p class="text-gray-600">Sign in to your account</p>
+</div>
+<div class="space-y-4">
+<div>
+<label for="loginEmail" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+<input type="email" id="loginEmail" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+</div>
+<div>
+<label for="loginPassword" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+<input type="password" id="loginPassword" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<label class="custom-checkbox">
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+<span class="ml-2 text-sm text-gray-600">Remember me</span>
+</div>
+<a href="#" class="text-sm text-primary hover:underline">Forgot password?</a>
+</div>
+<button class="w-full py-2 bg-primary text-white font-medium hover:bg-opacity-90 transition-colors duration-300 !rounded-button whitespace-nowrap">Sign In</button>
+<div class="relative flex items-center justify-center">
+<div class="border-t border-gray-300 absolute w-full"></div>
+<span class="bg-white px-2 text-sm text-gray-500 relative">Or continue with</span>
+</div>
+<div class="grid grid-cols-3 gap-3">
+<button class="flex items-center justify-center py-2 border border-gray-300 rounded hover:bg-gray-50 transition-colors duration-300 !rounded-button whitespace-nowrap">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-google-fill"></i>
+</div>
+</button>
+<button class="flex items-center justify-center py-2 border border-gray-300 rounded hover:bg-gray-50 transition-colors duration-300 !rounded-button whitespace-nowrap">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-facebook-fill"></i>
+</div>
+</button>
+<button class="flex items-center justify-center py-2 border border-gray-300 rounded hover:bg-gray-50 transition-colors duration-300 !rounded-button whitespace-nowrap">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-apple-fill"></i>
+</div>
+</button>
+</div>
+<p class="text-center text-sm text-gray-600">
+Don't have an account? <a href="#" id="showSignupBtn" class="text-primary hover:underline">Sign up</a>
+</p>
+</div>
+</div>
+</div>
+<!-- Signup Modal -->
+<div id="signupModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+<div class="bg-white rounded-lg max-w-md w-full p-6 relative">
+<button id="closeSignupBtn" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-close-line ri-lg"></i>
+</div>
+</button>
+<div class="text-center mb-6">
+<h3 class="text-2xl font-bold text-gray-900">Create an Account</h3>
+<p class="text-gray-600">Join our community today</p>
+</div>
+<div class="space-y-4">
+<div>
+<label for="userType" class="block text-sm font-medium text-gray-700 mb-1">I am a...</label>
+<div class="relative">
+<select id="userType" class="w-full px-4 py-2 border border-gray-300 rounded appearance-none focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent pr-8">
+<option value="" disabled>Select user type</option>
+<option value="writer">Writer</option>
+<option value="reader">Reader</option>
+<option value="event_manager">Event Manager</option>
+<option value="company">Company</option>
+</select>
+<div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+<div class="w-5 h-5 flex items-center justify-center text-gray-400">
+<i class="ri-arrow-down-s-line"></i>
+</div>
+</div>
+</div>
+</div>
+<div>
+<label for="signupName" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+<input type="text" id="signupName" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+</div>
+<div>
+<label for="signupEmail" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+<input type="email" id="signupEmail" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+</div>
+<div>
+<label for="signupPassword" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+<input type="password" id="signupPassword" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+</div>
+<div class="flex items-center">
+<label class="custom-checkbox">
+<input type="checkbox">
+<span class="checkmark"></span>
+</label>
+<span class="ml-2 text-sm text-gray-600">I agree to the <a href="#" class="text-primary hover:underline">Terms of Service</a> and <a href="#" class="text-primary hover:underline">Privacy Policy</a></span>
+</div>
+<button class="w-full py-2 bg-primary text-white font-medium hover:bg-opacity-90 transition-colors duration-300 !rounded-button whitespace-nowrap">Create Account</button>
+<div class="relative flex items-center justify-center">
+<div class="border-t border-gray-300 absolute w-full"></div>
+<span class="bg-white px-2 text-sm text-gray-500 relative">Or sign up with</span>
+</div>
+<div class="grid grid-cols-3 gap-3">
+<button class="flex items-center justify-center py-2 border border-gray-300 rounded hover:bg-gray-50 transition-colors duration-300 !rounded-button whitespace-nowrap">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-google-fill"></i>
+</div>
+</button>
+<button class="flex items-center justify-center py-2 border border-gray-300 rounded hover:bg-gray-50 transition-colors duration-300 !rounded-button whitespace-nowrap">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-facebook-fill"></i>
+</div>
+</button>
+<button class="flex items-center justify-center py-2 border border-gray-300 rounded hover:bg-gray-50 transition-colors duration-300 !rounded-button whitespace-nowrap">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-apple-fill"></i>
+</div>
+</button>
+</div>
+<p class="text-center text-sm text-gray-600">
+Already have an account? <a href="#" id="showLoginBtn" class="text-primary hover:underline">Sign in</a>
+</p>
+</div>
+</div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const loginModal = document.getElementById('loginModal');
+const signupModal = document.getElementById('signupModal');
+const loginBtn = document.getElementById('loginBtn');
+const signupBtn = document.getElementById('signupBtn');
+const joinWriterBtn = document.getElementById('joinWriterBtn');
+const closeLoginBtn = document.getElementById('closeLoginBtn');
+const closeSignupBtn = document.getElementById('closeSignupBtn');
+const showSignupBtn = document.getElementById('showSignupBtn');
+const showLoginBtn = document.getElementById('showLoginBtn');
+const getStartedBtn = document.getElementById('getStartedBtn');
+const userTypeDropdown = document.getElementById('userType');
+loginBtn.addEventListener('click', function() {
+loginModal.classList.remove('hidden');
+});
+signupBtn.addEventListener('click', function() {
+signupModal.classList.remove('hidden');
+});
+closeLoginBtn.addEventListener('click', function() {
+loginModal.classList.add('hidden');
+});
+closeSignupBtn.addEventListener('click', function() {
+signupModal.classList.add('hidden');
+});
+showSignupBtn.addEventListener('click', function() {
+loginModal.classList.add('hidden');
+signupModal.classList.remove('hidden');
+});
+showLoginBtn.addEventListener('click', function() {
+signupModal.classList.add('hidden');
+loginModal.classList.remove('hidden');
+});
+window.addEventListener('click', function(event) {
+if (event.target === loginModal) {
+loginModal.classList.add('hidden');
+}
+if (event.target === signupModal) {
+signupModal.classList.add('hidden');
+}
+});
+getStartedBtn.addEventListener('click', function() {
+signupModal.classList.remove('hidden');
+userTypeDropdown.focus();
+});
+joinWriterBtn.addEventListener('click', function() {
+signupModal.classList.remove('hidden');
+const userTypeDropdown = document.getElementById('userType');
+userTypeDropdown.value = 'writer';
+userTypeDropdown.dispatchEvent(new Event('change'));
+});
+});
+</script>
+</body>
+</html>
